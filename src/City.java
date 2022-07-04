@@ -1,20 +1,24 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class City {
 
-     public String name;
-     public int neighbors;
-     public Map<Integer, Integer> costToCity = new HashMap<>();
+     private String name;
+     private int neighbors;
+     private List<Path> paths = new ArrayList<>();
 
     public City() {
     }
 
-    public City(String name, int neighbors, Map<Integer, Integer> costToCity) {
+    public City(String name) {
+        this.name = name;
+    }
+
+    public City(String name, int neighbors, List<Path> paths) {
         this.name = name;
         this.neighbors = neighbors;
-        this.costToCity = costToCity;
+        this.paths = paths;
     }
 
     public String getName() {
@@ -33,22 +37,16 @@ public class City {
         this.neighbors = neighbors;
     }
 
-    public Map<Integer, Integer> getCostToCity() {
-        return costToCity;
+    public List<Path> getPaths() {
+        return paths;
     }
 
-    public void setCostToCity(Map<Integer, Integer> costToCity) {
-        this.costToCity = costToCity;
+    public void setPaths(List<Path> paths) {
+        this.paths = paths;
     }
-
-    @Override
-    public String toString() {
-        return "City{" +
-                "name='" + name + '\'' +
-                ", neighbors=" + neighbors +
-                ", costToCity=" + costToCity +
-                '}';
-    }
+     public void addPath(Path path){
+        paths.add(path);
+     }
 
     @Override
     public boolean equals(Object o) {
@@ -61,5 +59,13 @@ public class City {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "name='" + name + '\'' +
+                ", paths=" + paths +
+                '}';
     }
 }

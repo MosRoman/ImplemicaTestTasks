@@ -7,7 +7,8 @@ public class Main {
         CalculatingOptionsBrackets.calculatingOptinsBrackets();
         System.out.println();
         //TEST 2
-        CitiesList.printMinCostForRoades(CitiesList.parseFile());
+
+        ParseFile.getCostPathDestination(ParseFile.parseFile());
         System.out.println();
         //TEST 3print sum all digits of the number 100!
         System.out.println("Sum digits 100! = " + SumDIgitsFactorial.sumDigits(SumDIgitsFactorial.getFactorial(100)));
